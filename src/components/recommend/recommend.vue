@@ -84,7 +84,9 @@
       },
       _getDiscList() {
         getDiscList().then((res) => {
+          console.log('歌单数据为2222：',res)
           if (res.code === ERR_OK) {
+            console.log('歌单数据为：',res.data)
             this.discList = res.data.list
           }
         })
