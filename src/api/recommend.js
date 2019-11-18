@@ -15,12 +15,10 @@ export function getRecommend() {
 }
 
 export function getDiscList() {
-  const url = 'https://u.y.qq.com/cgi-bin/musicu.fcg'
+  const url = '/api/getDiscList'
 
   const data = Object.assign({}, commonParams, {
-    g_tk: 5381,
-    loginUin: 657106593,
-    platform: 'yqq.json',
+    platform: 'yqq',
     hostUin: 0,
     sin: 0,
     ein: 29,
@@ -28,15 +26,14 @@ export function getDiscList() {
     needNewCode: 0,
     categoryId: 10000000,
     rnd: Math.random(),
-    format: 'json',
-    data: '{"comm":{"ct":24},"playlist":{"method":"get_playlist_by_category","param":{"id":107,"curPage":1,"size":40,"order":5,"titleid":107},"module":"playlist.PlayListPlazaServer"}}'
+    format: 'json'
   })
-  return jsonp(url, data, options)
-  // return axios.get(url, {
-  //   params: data
-  // }).then((res) => {
-  //   return Promise.resolve(res.data)
-  // })
+
+  return axios.get(url, {
+    params: data
+  }).then((res) => {
+    return Promise.resolve(res.data)
+  })
 }
 
 export function getSongList(disstid) {
