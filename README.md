@@ -1,6 +1,6 @@
 # vue-music
 
-> 音乐播放器
+> 音乐播放器，慕课网vue项目
 
 ## Build Setup
 
